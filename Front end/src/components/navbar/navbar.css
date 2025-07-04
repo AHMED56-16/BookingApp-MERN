@@ -1,0 +1,57 @@
+.navbar {
+  height: 50px;
+  background-color: #003580;
+  display: flex;
+  justify-content: center;
+  padding: 0 16px;
+}
+
+.navContainer {
+  width: 100%;
+  max-width: 1024px;
+  color: white;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.logo {
+  font-weight: 600;
+  font-size: 20px;
+  white-space: nowrap;
+}
+
+.navItems {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.navButton {
+  border: none;
+  padding: 6px 12px;
+  cursor: pointer;
+  color: #003580;
+  background-color: #febb02;
+  font-weight: 500;
+  border-radius: 3px;
+  font-size: 14px;
+  white-space: nowrap;
+}
+
+/* Keeps everything on one line — even for small devices */
+@media (max-width: 480px) {
+  .navContainer {
+    flex-wrap: nowrap;
+    gap: 8px;
+  }
+
+  .logo {
+    font-size: 16px;
+  }
+
+  .navButton {
+    font-size: 12px;
+    padding: 5px 8px;
+  }
+}
