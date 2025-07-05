@@ -1,55 +1,50 @@
-/* --- Base Styles --- */
-
 .header {
   background-color: #003580;
   color: white;
   display: flex;
   justify-content: center;
   position: relative;
-  padding: 20px 16px 100px;
+  padding: 20px;
 }
 
 .headerContainer {
   width: 100%;
   max-width: 1024px;
+  margin: 20px 0 100px;
 }
 
 .headerContainer.listMode {
-  margin-bottom: 0;
+  margin: 20px 0 0;
 }
 
 .headerList {
   display: flex;
+  gap: 40px;
+  margin-bottom: 50px;
   flex-wrap: wrap;
-  gap: 20px;
-  margin-bottom: 30px;
 }
 
 .headerListItem {
   display: flex;
   align-items: center;
   gap: 10px;
-  font-size: 14px;
   cursor: pointer;
-  white-space: nowrap;
 }
 
 .headerListItem.active {
   border: 1px solid white;
-  padding: 8px 12px;
-  border-radius: 20px;
+  padding: 10px;
+  border-radius: 10px;
 }
 
 .headerTitle {
   font-size: 28px;
-  margin-bottom: 10px;
-  line-height: 1.2;
+  font-weight: 700;
 }
 
 .headerDesc {
   margin: 20px 0;
   font-size: 16px;
-  line-height: 1.4;
 }
 
 .headerBtn {
@@ -59,28 +54,24 @@
   border: none;
   padding: 10px 20px;
   cursor: pointer;
-  font-size: 14px;
-  border-radius: 3px;
-  margin-bottom: 20px;
-  white-space: nowrap;
+  font-size: 16px;
+  border-radius: 5px;
 }
-
-/* --- Responsive Header Search --- */
 
 .headerSearch {
   background-color: white;
   border: 3px solid #febb02;
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+  padding: 15px;
   border-radius: 5px;
   position: absolute;
-  bottom: -30px;
+  bottom: -25px;
   width: 100%;
   max-width: 1024px;
-
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-  gap: 10px;
-  padding: 12px;
-  z-index: 1;
+  gap: 15px;
   box-sizing: border-box;
 }
 
@@ -88,130 +79,100 @@
   display: flex;
   align-items: center;
   gap: 10px;
-  width: 100%;
-  min-width: 0;
+  flex: 1;
+  min-width: 200px;
 }
 
 .headerSearchInput {
-  flex: 1;
   border: none;
   outline: none;
-  font-size: 14px;
-  min-width: 0;
+  font-size: 16px;
+  width: 100%;
 }
 
 .headerSearchText {
+  font-size: 16px;
   color: gray;
   cursor: pointer;
-  font-size: 14px;
   white-space: nowrap;
-  overflow: hidden;
-  text-overflow: ellipsis;
 }
 
 .headerIcon {
-  color: lightgray;
-  font-size: 16px;
+  color: gray;
+  font-size: 18px;
 }
 
 .date {
   position: absolute;
-  top: 50px;
+  top: 60px;
   z-index: 10;
 }
 
 .options {
-  z-index: 10;
   position: absolute;
-  top: 50px;
+  top: 60px;
   background-color: white;
-  color: gray;
-  border-radius: 5px;
-  box-shadow: 0 0 10px -5px rgba(0, 0, 0, 0.4);
-  padding: 10px;
+  color: #333;
+  border-radius: 10px;
+  padding: 15px;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.15);
+  z-index: 20;
+  min-width: 250px;
 }
 
 .optionItem {
   display: flex;
   justify-content: space-between;
-  margin: 10px 0;
-  width: 100%;
+  align-items: center;
+  margin: 12px 0;
+}
+
+.optionText {
+  font-weight: 500;
+  font-size: 16px;
 }
 
 .optionCounter {
   display: flex;
   align-items: center;
   gap: 10px;
-  font-size: 14px;
-  color: black;
 }
 
 .optionCounterButton {
   width: 30px;
   height: 30px;
-  border: 1px solid #0071c2;
-  color: #0071c2;
-  cursor: pointer;
-  background-color: white;
+  border: none;
+  border-radius: 50%;
+  background-color: #f0f0f0;
   font-size: 16px;
-  border-radius: 3px;
+  cursor: pointer;
+  transition: 0.2s ease;
+}
+
+.optionCounterButton:hover {
+  background-color: #0071c2;
+  color: white;
+}
+
+.optionCounterNumber {
+  min-width: 20px;
+  text-align: center;
+  font-size: 16px;
+  font-weight: 500;
 }
 
 .optionCounterButton:disabled {
+  background-color: #e0e0e0;
+  color: #aaa;
   cursor: not-allowed;
 }
 
-/* --- Media Queries --- */
-
-/* Tablets (≤768px) */
-@media (max-width: 768px) {
-  .headerTitle {
-    font-size: 22px;
-  }
-
-  .headerDesc {
-    font-size: 14px;
-  }
-
+@media (max-width: 1024px) {
   .headerSearch {
-    grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
-    gap: 12px;
-    padding: 14px;
-  }
-
-  .headerSearchInput,
-  .headerSearchText {
-    font-size: 13px;
-  }
-
-  .headerBtn {
-    font-size: 13px;
-    padding: 8px 16px;
-  }
-}
-
-/* Mobile (≤480px) */
-@media (max-width: 480px) {
-  .headerTitle {
-    font-size: 18px;
-  }
-
-  .headerDesc {
-    font-size: 13px;
-  }
-
-  .headerList {
-    gap: 12px;
-  }
-
-  .headerListItem {
-    font-size: 12px;
-  }
-
-  .headerSearch {
-    grid-template-columns: 1fr;
-    padding: 12px;
-    bottom: -50px;
+    flex-direction: column;
+    align-items: stretch;
+    position: static;
+    margin-top: 20px;
   }
 
   .headerSearchItem {
@@ -219,14 +180,35 @@
     align-items: center;
   }
 
-  .headerSearchInput,
+  .date,
+  .options {
+    position: static;
+    margin-top: 10px;
+    width: 100%;
+  }
+}
+
+@media (max-width: 768px) {
+  .headerList {
+    justify-content: center;
+    gap: 20px;
+  }
+
+  .headerTitle {
+    font-size: 22px;
+  }
+
+  .headerDesc {
+    font-size: 15px;
+  }
+
   .headerSearchText {
-    font-size: 12px;
+    font-size: 15px;
   }
 
   .headerBtn {
-    padding: 7px 12px;
-    font-size: 12px;
+    width: 100%;
+    font-size: 15px;
   }
 
   .optionCounterButton {
@@ -234,25 +216,55 @@
     height: 26px;
     font-size: 14px;
   }
-}
 
-/* Extra small phones (≤360px) */
-@media (max-width: 360px) {
-  .headerSearch {
-    padding: 10px;
+  .optionCounterNumber {
+    font-size: 14px;
   }
 
-  .headerSearchText,
+  .headerSearchItem {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 8px;
+  }
+
   .headerSearchInput {
-    font-size: 11px;
+    width: 100%;
+  }
+}
+
+@media (max-width: 480px) {
+  .headerContainer {
+    padding: 0 10px;
+  }
+
+  .headerSearch {
+    padding: 12px;
+    gap: 12px;
   }
 
   .headerBtn {
-    font-size: 11px;
-    padding: 6px 10px;
+    font-size: 14px;
   }
 
-  .headerListItem {
-    font-size: 11px;
+  .optionItem {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 5px;
+  }
+
+  .optionCounter {
+    gap: 8px;
+  }
+
+  .headerSearchText {
+    font-size: 14px;
+  }
+
+  .headerIcon {
+    font-size: 16px;
+  }
+
+  .date {
+    overflow-x: auto;
   }
 }

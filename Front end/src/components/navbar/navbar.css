@@ -39,7 +39,6 @@
   white-space: nowrap;
 }
 
-/* Keeps everything on one line — even for small devices */
 @media (max-width: 480px) {
   .navContainer {
     flex-wrap: nowrap;
