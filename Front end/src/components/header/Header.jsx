@@ -6,6 +6,7 @@ import { useState } from 'react';
 import "react-date-range/dist/styles.css";
 import "react-date-range/dist/theme/default.css";
 import { format } from "date-fns";
+import { useNavigate } from 'react-router-dom';
 const Header = ({ type }) => {
     const [openDate, setOpenDate] = useState(false);
     const [date, setDate] = useState([
@@ -15,12 +16,14 @@ const Header = ({ type }) => {
             key: "selection",
         },
     ]);
+    const [destination, setDestination] = useState("")
     const [openOptions, setOpenOptions] = useState(false);
     const [options, setOptions] = useState({
         adult: 1,
         children: 0,
         room: 1,
     });
+    const navigate = useNavigate()
     const handleOption = (name, operation) => {
         setOptions((prev) => {
             return {
@@ -29,6 +32,10 @@ const Header = ({ type }) => {
             };
         });
     };
+
+    const handleSearch = () => {
+        navigate("/hotels", { state: { destination, date, options } })
+    }
     return (
         <div className='header'>
             <div className={type === "list" ? "headerContainer listMode" : "headerContainer"}>
@@ -54,13 +61,13 @@ const Header = ({ type }) => {
                         <span>Airport taxis</span>
                     </div>
                 </div>
-                { type !== "list" && <><h1 className="headerTitle">A lifetime of discounts? It's Genius.</h1>
+                {type !== "list" && <><h1 className="headerTitle">A lifetime of discounts? It's Genius.</h1>
                     <p className="headerDesc">Get rewarded for your travels - unlock instant savings of 10% or more with a free Lamabooking account</p>
                     <button className="headerBtn">Sign in / Register</button>
                     <div className="headerSearch">
                         <div className="headerSearchItem">
                             <FontAwesomeIcon icon={faBed} className="headerIcon" />
-                            <input type="text" placeholder="Where are you going?" className="headerSearchInput" />
+                            <input type="text" placeholder="Where are you going?" className="headerSearchInput" onChange={e => setDestination(e.target.value)} />
                         </div>
                         <div className="headerSearchItem">
                             <FontAwesomeIcon icon={faCalendarDays} className="headerIcon" />
@@ -98,7 +105,7 @@ const Header = ({ type }) => {
                             </div>}
                         </div>
                         <div className="headerSearchItem">
-                            <button className='headerBtn'>Search</button>
+                            <button className='headerBtn' onClick={handleSearch}>Search</button>
                         </div>
                     </div></>}
             </div>
