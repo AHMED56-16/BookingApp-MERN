@@ -6,7 +6,7 @@ const SearchItem = () => {
       <img src="https://images.trvl-media.com/lodging/1000000/530000/522900/522878/551d85d2.jpg?impolicy=resizecrop&rw=575&rh=575&ra=fill" alt="" className="siImg" />
       <div className="siDesc">
         <h1 className="siTitle">PC Hotel Karachi</h1>
-        <span className="siDistance">2.5km from center</span>
+        <span className="siDistance">300m from center</span>
         <span className="siTaxiOp">Complimentary airport shuttle</span>
         <span className="siSubtitle">
           Deluxe Room with City View and Air Conditioning

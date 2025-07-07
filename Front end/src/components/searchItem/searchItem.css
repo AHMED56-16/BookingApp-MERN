@@ -113,7 +113,6 @@
   border-radius: 5px;
 }
 
-/* ✅ Responsive Styling */
 @media (max-width: 768px) {
   .searchItem {
     flex-direction: column;
