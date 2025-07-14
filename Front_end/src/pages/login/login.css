@@ -1,0 +1,79 @@
+/* login.css */
+
+.login {
+  height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: #003580;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  padding: 20px;
+}
+
+.lContainer {
+  background-color: white;
+  padding: 40px 30px;
+  border-radius: 12px;
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.2);
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  width: 100%;
+  max-width: 400px;
+  box-sizing: border-box;
+  text-align: center;
+}
+
+.lInput {
+  height: 45px;
+  padding: 0 15px;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  font-size: 16px;
+  transition: border-color 0.3s ease;
+}
+
+.lInput:focus {
+  border-color: #febb02;
+  outline: none;
+}
+
+.lButton {
+  height: 45px;
+  border: none;
+  padding: 0 20px;
+  background-color: #febb02;
+  color: #003580;
+  font-weight: bold;
+  font-size: 16px;
+  cursor: pointer;
+  border-radius: 8px;
+  transition: background-color 0.3s ease, transform 0.2s ease;
+}
+
+.lButton:hover:not(:disabled) {
+  background-color: #e0a500;
+  transform: scale(1.03);
+}
+
+.lButton:disabled {
+  background-color: #febb02a6;
+  cursor: not-allowed;
+}
+
+.errorMessage {
+  color: red;
+  font-size: 14px;
+}
+
+@media (max-width: 500px) {
+  .lContainer {
+    padding: 30px 20px;
+  }
+
+  .lInput,
+  .lButton {
+    font-size: 14px;
+    height: 40px;
+  }
+}
