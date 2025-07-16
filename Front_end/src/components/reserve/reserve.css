@@ -1,0 +1,153 @@
+.reserve {
+  width: 100vw;
+  height: 100vh;
+  background-color: rgba(0, 0, 0, 0.5);
+  position: fixed;
+  top: 0;
+  left: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 1000;
+}
+
+.rContainer {
+  background-color: #fff;
+  border-radius: 12px;
+  max-width: 600px;
+  width: 90%;
+  padding: 30px 25px;
+  position: relative;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.15);
+  overflow-y: auto;
+  max-height: 90vh;
+}
+
+.rClose {
+  position: absolute;
+  top: 20px;
+  right: 20px;
+  font-size: 24px;
+  color: #555;
+  cursor: pointer;
+  transition: color 0.2s;
+}
+
+.rClose:hover {
+  color: #ff4d4d;
+}
+
+.rContainer > span {
+  display: block;
+  font-size: 20px;
+  font-weight: 600;
+  margin-bottom: 20px;
+  color: #333;
+}
+
+.rItem {
+  display: flex;
+  flex-direction: column;
+  border-bottom: 1px solid #eee;
+  padding: 15px 0;
+}
+
+.rItemInfo {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  margin-bottom: 10px;
+}
+
+.rTitle {
+  font-size: 18px;
+  font-weight: 600;
+  color: #222;
+}
+
+.rDesc {
+  font-size: 14px;
+  color: #666;
+}
+
+.rMax {
+  font-size: 13px;
+  color: #888;
+}
+
+.rPrice {
+  font-size: 16px;
+  font-weight: 600;
+  color: #0071c2;
+}
+
+.rSelectRooms {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+}
+
+.room {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  gap: 6px;
+  background-color: #f8f8f8;
+  padding: 6px 10px;
+  border-radius: 6px;
+  font-size: 14px;
+  color: #333;
+}
+
+.room input[type="checkbox"] {
+  accent-color: #0071c2;
+  transform: scale(1.1);
+}
+
+.rButton {
+  border: none;
+  padding: 12px;
+  background-color: #0071c2;
+  color: white;
+  font-weight: 600;
+  cursor: pointer;
+  border-radius: 6px;
+  width: 100%;
+  margin-top: 25px;
+  font-size: 16px;
+  transition: background-color 0.3s ease;
+}
+
+.rButton:hover {
+  background-color: #005fa3;
+}
+
+/* Responsive */
+@media (max-width: 600px) {
+  .rContainer {
+    padding: 20px 15px;
+  }
+
+  .rTitle {
+    font-size: 16px;
+  }
+
+  .rDesc,
+  .rMax,
+  .rPrice {
+    font-size: 13px;
+  }
+
+  .rSelectRooms {
+    gap: 8px;
+  }
+
+  .room {
+    font-size: 13px;
+    padding: 4px 8px;
+  }
+
+  .rButton {
+    font-size: 15px;
+  }
+}

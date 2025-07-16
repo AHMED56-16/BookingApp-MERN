@@ -7,19 +7,22 @@ import MailList from "../../components/mailList/MailList.jsx";
 import Footer from "../../components/footer/Footer.jsx";
 import { useContext, useState } from 'react';
 import useFetch from "../../hooks/useFetch.js"
-import { useLocation } from 'react-router-dom';
+import { useLocation, useNavigate } from 'react-router-dom';
 import { SearchContext } from '../../context/SearchContext.jsx';
+import { AuthContext } from '../../context/AuthContext.jsx';
+import Reserve from '../../components/reserve/Reserve.jsx';
 
 const Hotel = () => {
   const location = useLocation();
   const id = location.pathname.split("/")[2];
   const [slideNumber, setSlideNumber] = useState(0);
   const [open, setOpen] = useState(false);
+  const [openModal, setOpenModal] = useState(false);
 
   const { data, loading, error, reFetch } = useFetch(`/hotels/find/${id}`)
-
+  const {user}= useContext(AuthContext)
   const { dates, options } = useContext(SearchContext)
-
+  const navigate = useNavigate()
   const MILLISECONDS_PER_DAY = 1000 * 60 * 60 * 24;
   function dayDifference(date1, date2) {
     const timeDiff = Math.abs(date2?.getTime() - date1?.getTime());
@@ -34,7 +37,13 @@ const Hotel = () => {
     setSlideNumber(i);
     setOpen(true);
   };
-
+  const handleClick = () => {
+    if (user) {
+      setOpenModal(true);
+    } else {
+      navigate("/login");
+    }
+  };
   const handleMove = (direction) => {
     let newSlideNumber;
 
@@ -93,13 +102,14 @@ const Hotel = () => {
               <h2>
                 <b>PKR {days * data.cheapestPrice * options?.room}</b> ({days} nights)
               </h2>
-              <button>Reserve or Book Now!</button>
+              <button onClick={handleClick}>Reserve or Book Now!</button>
             </div>
           </div>
         </div>
         <MailList />
         <Footer />
       </div>}
+      {openModal && <Reserve setOpen={setOpenModal} hotelId={id}/>}
     </div>
 
   )
